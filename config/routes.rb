@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'homes/index'
   get 'songs/index'
   get 'songs/new'
   get 'songs/create'
