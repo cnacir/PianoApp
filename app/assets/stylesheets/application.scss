@@ -25,7 +25,7 @@
 	box-shadow:0 0 50px rgba(0,0,0,0.5) inset, 0 1px rgba(212,152,125,0.2) inset,0 5px 15px rgba(0,0,0,0.5); 
 }
 
-.white {
+.white-key {
 	height:16em; width:4em; z-index:1;
 	border-left:1px solid #bbb;
 	border-bottom:1px solid #bbb;
@@ -34,7 +34,7 @@
 	background: white;
 }
 
-.white:active {
+.white-key:active {
 	border-top:1px solid #777;
 	border-left:1px solid #999;
 	border-bottom:1px solid #999;
@@ -42,7 +42,7 @@
 	background: linear-gradient(top, #fff 0%,#e9e9e9 100%);
 }
 
-.black {
+.black-key {
 	height:8em; width:2em; margin:0 0 0 -1em; z-index:2;
 	border:1px solid #000;
 	border-radius:0 0 3px 3px;
@@ -50,12 +50,22 @@
 	background:linear-gradient(45deg, #222 0%,#555 100%);
 }
 
-.black:active {
+.black-key:active {
 	box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -2px 2px 3px rgba(0,0,0,0.6) inset, 0 1px 2px rgba(0,0,0,0.5);
 	background:linear-gradient(left, #444 0%,#222 100%);
 }
 
 .a,.g,.f,.d,.c { margin:0 0 0 -1em;
+}
+
+.legend-wk {
+	margin-top: 10em;
+	margin-left: .5em
+}
+
+.legend-bk {
+	margin-top: 10em;
+	margin-left: .5em
 }
 
 
