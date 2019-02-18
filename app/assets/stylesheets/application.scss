@@ -15,20 +15,17 @@
 
 @import "bootstrap";
 
-#piano { box-sizing:border-box; }
+#piano { box-sizing: border-box; }
 
-ul {
-	height:18.875em; width:34em;
+.set {
+	height:18.875em; width:40em;
   margin:5em auto; padding:3em 0 0 3em; position:relative;
   border:1px solid #160801; border-radius:1em;
   background:-webkit-gradient(linear, right bottom, left top, color-stop(0%,rgba(0,0,0,0.3)), color-stop(100%,rgba(0,0,0,0)));
 	box-shadow:0 0 50px rgba(0,0,0,0.5) inset, 0 1px rgba(212,152,125,0.2) inset,0 5px 15px rgba(0,0,0,0.5); 
 }
 
-li { margin:0; padding:0; list-style:none; position: relative; float: left;
-}
-
-ul .white {
+.white {
 	height:16em; width:4em; z-index:1;
 	border-left:1px solid #bbb;
 	border-bottom:1px solid #bbb;
@@ -37,7 +34,7 @@ ul .white {
 	background: white;
 }
 
-ul .white:active {
+.white:active {
 	border-top:1px solid #777;
 	border-left:1px solid #999;
 	border-bottom:1px solid #999;
@@ -61,8 +58,19 @@ ul .white:active {
 .a,.g,.f,.d,.c { margin:0 0 0 -1em;
 }
 
-ul li:first-child { border-radius:5px 0 5px 5px;
+
+li { 
+	margin:0; 
+	padding:0;
+	list-style:none; 
+	position: relative; 
+	float: left;
 }
 
-ul li:last-child { border-radius:0 5px 5px 5px; 
+ul li:first-child { 
+	border-radius:5px 0 5px 5px;
+}
+
+ul li:last-child { 
+	border-radius:0 5px 5px 5px; 
 }
