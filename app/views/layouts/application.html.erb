@@ -14,8 +14,8 @@
       
 
       <% if user_signed_in? %>
-      <nav class="nav justify-content-start">
-        <div class="justify-content-end">
+      <nav class="nav">
+        <div class="justify-content-start">
           <%= link_to 'Songs', songs_path, :class => 'btn btn-default btn-lg' %>
           <%= link_to 'Piano', new_song_path, :class => 'btn btn-default btn-lg' %>
         </div>
