@@ -15,24 +15,26 @@
 
       <% if user_signed_in? %>
       <nav class="nav justify-content-start">
-        <%= link_to 'Songs', songs_path, :class => 'btn btn-default btn-lg' %>
-        <%= link_to 'Piano', new_song_path, :class => 'btn btn-default btn-lg' %>
-      </nav>
-      <nav class="nav justify-content-end">
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-default btn-lg' %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-default btn-lg' %>
+        <div class="justify-content-end">
+          <%= link_to 'Songs', songs_path, :class => 'btn btn-default btn-lg' %>
+          <%= link_to 'Piano', new_song_path, :class => 'btn btn-default btn-lg' %>
+        </div>
+        <div class="justify-content-end">
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-default btn-lg' %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-default btn-lg' %>
+        </div>
       </nav>
       <% else %>
-      <nav class="nav justify-content-start">
-        <%= link_to 'Songs', songs_path, :class => 'btn btn-default btn-lg' %>
-        <%= link_to 'Piano', new_song_path, :class => 'btn btn-default btn-lg' %>
-      </nav>
-      <nav class="nav justify-content-end">
-        
+      <nav class="nav">
+        <div class="justify-content-start">
+          <%= link_to 'Songs', songs_path, :class => 'btn btn-default btn-lg' %>
+          <%= link_to 'Piano', new_song_path, :class => 'btn btn-default btn-lg' %>
+        </div>
+        <div class="justify-content-end">
           <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-default btn-lg' %>
           <%= link_to "Login", new_user_session_path, :class => 'btn btn-default btn-lg' %>
-        
+        </div>
       </nav>
       <% end %>
       
