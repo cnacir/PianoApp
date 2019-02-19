@@ -2,17 +2,6 @@
 
 
 
-<%= form_for @song do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<br>
-<br>
-<%= f.label "Audio File" %>
-<%= f.file_field :song_file %>
-<br>
-<br>
-<%= f.submit %>
-<% end %>
 
 
 
@@ -20,7 +9,39 @@
 
 
 
+<header>
+      <h1>Berk players </h1>
+    </header>
 
+    <section class="main-controls">
+      <canvas class="visualizer"></canvas> 
+      <button class="record">Record</button>
+      <button class="stop">Stop</button>
+
+    </section>
+
+    <section class="sound-clips">
+
+      <!-- <article class="clip">
+        <audio controls></audio>
+        <a href="">Download clip</a>
+      </article> -->
+
+    </section>
+
+  </div>
+
+  <label for="toggle">❔</label>
+  <input type="checkbox" id="toggle">
+ 
+
+  <!-- The following element pulls in the script for the default template functionality -->
+      
+    <script src="assets/install.js"></script>  
+
+    <!-- Below is your custom application script -->
+
+    <script src="/assets/mohamed.js"></script>
 
 
 
