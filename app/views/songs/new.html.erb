@@ -1,6 +1,40 @@
 <!-- Must leave as first div with set id to call the javascript onto this page -->
+
+
+
+<%= form_for @song do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<br>
+<br>
+<%= f.label "Audio File" %>
+<%= f.file_field :song_file %>
+<br>
+<br>
+<%= f.submit %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div id= "piano">
+
+
 	<ul class="set">
+
+
 		<li class="white b" id="65" data-key="65" data-frequency="174.61">F3</li>
 			<li>A</li>
 		<li class="black as" id="87" data-key="87" data-frequency="185.00">F3#</li>
@@ -25,5 +59,7 @@
 				<li>U</li>
 			<li class="white c" id="74" data-key="74" data-frequency="329.63">E4</li>
 				<li>J</li>
+			
 	</ul>
+	
 </div>
