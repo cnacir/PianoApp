@@ -14,26 +14,24 @@ var notesByKeyCode = {
 };
 
 var piano = document.getElementById("#piano")
+var waveForm = 'sine'
 
 // Create the audio context
 var context = new (window.AudioContext || window.webkitAudioContext)();
 
 class Sound {
 
-  constructor(context) {
+  constructor(context, type) {
     this.context = context;
-  };
-
-  setup() {
-    this.oscillator = this.context.createOscillator();
+		this.oscillator = this.context.createOscillator();
     this.gainNode = this.context.createGain();
     this.oscillator.connect(this.gainNode);
     this.gainNode.connect(this.context.destination);
-		this.oscillator.type = 'triangle';
+		this.oscillator.type = type;
   };
 
+
   play(value) {
-    this.setup();
     this.oscillator.frequency.value = value;
     this.gainNode.gain.setValueAtTime(0, this.context.currentTime);
     this.gainNode.gain.linearRampToValueAtTime(3, this.context.currentTime + 0.02);
@@ -52,30 +50,35 @@ class Sound {
 
 function playPiano() {
 		window.addEventListener("keydown", (e) => {
-			var sound = new Sound(context);
-			var keyCode = e.char || e.charCode || e.which
-			var key = document.getElementById(keyCode)
-			var freq = key.dataset.frequency
+			var keyCode = e.char || e.charCode || e.which;
+
+			if (keyCode === 49) {
+				waveForm = 'sine'
+				return
+			} else if  (keyCode === 50) {
+				waveForm = 'triangle'
+				return
+			} else if (keyCode === 51) {
+				waveForm = 'square'
+				return
+			} else if (keyCode === 52) {
+				waveForm = 'sawtooth'
+				return
+			}
+
+			var sound = new Sound(context, waveForm)
+			var key = document.getElementById(keyCode);
+			var freq = key.dataset.frequency;
+			key.classList.add('white-animate');
+			key.classList.add('black-animate');
 			sound.play(freq);
 		});
 
-		window.addEventListener("keypress", (e) => {
-			var sound = new Sound(context);
-			var keyCode = e.char || e.charCode || e.which
-			if (keyCode === 49) {
-				sound.oscillator.type="sine"
-			} else if  (keyCode === 50) {
-				sound.oscillator.type="triangle"
-			} else if (keyCode === 51) {
-				sound.oscillator.type="square"
-			} else if (keyCode === 52) {
-				sound.oscillator.type="sawtooth"
-			};
-		});
-
-		window.addEventListener("keyup", (event) => {
-			var sound = new Sound(context);
-			sound.stop();
+		window.addEventListener("keyup", (e) => {
+			var keyCode = e.char || e.charCode || e.which;
+			var key = document.getElementById(keyCode);
+			key.classList.remove('white-animate');
+			key.classList.remove('black-animate');
 		});
 	};
 
