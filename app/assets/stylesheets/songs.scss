@@ -2,34 +2,106 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* || General layout rules for narrow screens */
+// Piano Console styling
 
-html {
-	height: 100%;
-	font-family: sans-serif;
-	font-size: 10px;
-	background-color: black;
+#piano { 
+	box-sizing: border-box; 
 }
 
-body {
-	width: 100%;
-	height: inherit;
-	background-color: #999;
-	background-image: linear-gradient(to top right, rgba(0,0,0,0), rgba(0,0,0,0.5));
+.set {
+	height:20em; 
+	width:36em;
+	margin:5em auto; 
+	padding:3em 3em 0 3em; 
+	position: unset;
+	border:1px solid #160801; border-radius:1em;
+	background:-webkit-gradient(linear, right bottom, left top, color-stop(0%,rgba(0,0,0,0.3)), color-stop(100%,rgba(0,0,0,0)));
+	box-shadow:0 0 50px rgba(0,0,0,0.5) inset, 0 1px rgba(212,152,125,0.2) inset,0 5px 15px rgba(0,0,0,0.5); 
 }
 
-h1, h2 {
-  font-size: 4rem;
-  font-family: 'Dancing Script', cursive;
-  text-align: center;
-  text-shadow: -1px -1px 1px #aaa,
-               0px 2px 1px rgba(0,0,0,0.5),
-               2px 2px 3px rgba(0,0,0,0.7),
-               0px 0px 3px rgba(0,0,0,0.4);
-  margin: 0;
-  padding: 1rem 0;
+.backdrop	{
+	background-color: white;
 }
 
+.brand {
+	text-align: center;
+	font-size: 1.75em;
+	margin-top: -1em;
+}
+
+.keys {
+	margin-top: 1em;
+	margin-left: 1em;
+}
+
+.white-key {
+	height:16em; 
+	width:4em;
+	z-index:1;
+	border-left:1px solid #bbb;
+	border-bottom:1px solid #bbb;
+	border-radius:0 0 5px 5px;
+	box-shadow:-1px 0 0 rgba(255,255,255,0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0,0,0,0.2);
+	background: white;
+}
+
+.white-key:active {
+	border-top:1px solid #777;
+	border-left:1px solid #999;
+	border-bottom:1px solid #999;
+	box-shadow:2px 0 3px rgba(0,0,0,0.1) inset, -5px 5px 20px rgba(0,0,0,0.2) inset,0 0 3px rgba(0,0,0,0.2);
+	background: linear-gradient(top, #fff 0%,#e9e9e9 100%);
+}
+
+.black-key {
+	height:8em; 
+	width:2em; 
+	margin:0 0 0 -1em; 
+	z-index:2;
+	border:1px solid #000;
+	border-radius:0 0 3px 3px;
+	box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -5px 2px 3px rgba(0,0,0,0.6) inset, 0 2px 4px rgba(0,0,0,0.5);
+	background:linear-gradient(45deg, #222 0%,#555 100%);
+}
+
+.black-key:active {
+	box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset, 0 -2px 2px 3px rgba(0,0,0,0.6) inset, 0 1px 2px rgba(0,0,0,0.5);
+	background:linear-gradient(left, #444 0%,#222 100%);
+}
+
+.a,.g,.f,.d,.c { 
+	margin:0 0 0 -1em;
+}
+
+.legend-wk {
+	margin-top: 10em;
+	text-align: center;
+}
+
+.legend-bk {
+	margin-top: 4em;
+	text-align: center;
+	color: white;
+	font-size: 65%;
+}
+
+li { 
+	margin:0; 
+	padding:0;
+	list-style:none; 
+	position: relative; 
+	float: left;
+}
+
+ul li:first-child { 
+	border-radius:5px 0 5px 5px;
+}
+
+ul li:last-child { 
+  border-radius:0 5px 5px 5px;
+}
+
+// Song Save Controller
 canvas {
 	width: 100%;
 	height: 60px;
@@ -45,10 +117,6 @@ canvas {
 
 /* || main UI sections */
 
-header {
-  height: 70px;
-}
-
 .main-controls {
   padding-bottom: 0.7rem;
   height: 170px;
@@ -60,7 +128,6 @@ header {
   height: calc(100% - 240px - 0.7rem);
   overflow: scroll;
 }
-
 
 /* || button styling */
 
@@ -93,31 +160,31 @@ button:active {
 
 /* || Checkbox hack to control information box display */
 
-label {
-	font-family: 'NotoColorEmoji';
-	font-size: 3rem;
-	position: absolute;
-	top: 2px;
-	right: 3px;
-	z-index: 5;
-	cursor: pointer;
-}
+// label {
+// 	font-family: 'NotoColorEmoji';
+// 	font-size: 3rem;
+// 	position: absolute;
+// 	top: 2px;
+// 	right: 3px;
+// 	z-index: 5;
+// 	cursor: pointer;
+// }
 
 input[type=checkbox] {
-   position: absolute;
-   top: -100px;
+  position: absolute;
+  top: -100px;
 }
 
 aside {
-   position: fixed;
-   top: 0;
-   left: 0;
-   text-shadow: 1px 1px 1px black;  
-   width: 100%;
-   height: 100%;
-   transform: translateX(100%);
-   transition: 0.6s all;
-   background-color: #999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-shadow: 1px 1px 1px black;  
+  width: 100%;
+  height: 100%;
+  transform: translateX(100%);
+  transition: 0.6s all;
+  background-color: #999;
 	background-image: linear-gradient(to top right, rgba(0,0,0,0), rgba(0,0,0,0.5));
 }
 
@@ -133,16 +200,6 @@ aside p {
 
 input[type=checkbox]:checked ~ aside {
   transform: translateX(0);
-}
-
-/* || Link styles */
-
-a {
-  color: #aaa;	
-}
-
-a:hover, a:focus {
-  text-decoration: none;
 }
 
 /* audio styling */
@@ -169,7 +226,7 @@ article p {
   display: inline-block;
   margin: 0;
   width: 70%;
-  float: left;
+  // float: left;
   margin-left: calc(10%/2);
 }
 
@@ -213,12 +270,12 @@ article button {
   /*CSS for wide screens*/
 
   aside {
-   top: 0;
-   left: 100%;
-   text-shadow: 1px 1px 1px black;  
-   width: 480px;
-   transform: translateX(0);
-   border-left: 2px solid black;
+  top: 0;
+  left: 100%;
+  text-shadow: 1px 1px 1px black;  
+  width: 480px;
+  transform: translateX(0);
+  border-left: 2px solid black;
   }
 
   /* Toggled State of information box */
@@ -226,7 +283,6 @@ article button {
   input[type=checkbox]:checked ~ aside {
     transform: translateX(-480px);
   }
-
 }
 
 @media (min-width: 1100px) {
