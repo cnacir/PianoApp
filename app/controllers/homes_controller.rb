@@ -9,6 +9,7 @@ class HomesController < ApplicationController
 	end
 
 	private
+	
 		def set_user
 			@profile = User.find(params[:id])
 		end
