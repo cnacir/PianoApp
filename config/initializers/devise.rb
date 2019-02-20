@@ -3,7 +3,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.scoped_views = true 
+	config.scoped_views = true
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -115,7 +115,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '256ac4e80ac2d7a37aa045833bccca9884dad3e819ac264a1eeecf3ad9b93ac699a819cbd042e0b08d64ce4620d13bab0053972c03c8b4d9f8e953add199af36'
+  # config.pepper = 'feb693d9f2dc77ebd051cd541d1bccefb7bfba4026fc7690d939f0bfbc5c90f77fd62643951ba59b21f261ecfc96aca33e3e967ac14658cca2f84d2720ab2b96'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
