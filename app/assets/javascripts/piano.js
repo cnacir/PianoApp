@@ -29,7 +29,7 @@ class Sound {
     this.gainNode = this.context.createGain();
     this.oscillator.connect(this.gainNode);
     this.gainNode.connect(this.context.destination);
-		this.oscillator.type = 'triangle';
+		this.oscillator.type = 'square';
   };
 
   play(value) {
@@ -53,9 +53,11 @@ class Sound {
 function playPiano() {
 		window.addEventListener("keydown", (e) => {
 			var sound = new Sound(context);
-			var keyCode = e.char || e.charCode || e.which
-			var key = document.getElementById(keyCode)
-			var freq = key.dataset.frequency
+			var keyCode = e.char || e.charCode || e.which;
+			var key = document.getElementById(keyCode);
+			var freq = key.dataset.frequency;
+			key.classList.add('white-animate');
+			key.classList.add('black-animate');
 			sound.play(freq);
 		});
 
@@ -73,8 +75,12 @@ function playPiano() {
 			};
 		});
 
-		window.addEventListener("keyup", (event) => {
+		window.addEventListener("keyup", (e) => {
 			var sound = new Sound(context);
+			var keyCode = e.char || e.charCode || e.which;
+			var key = document.getElementById(keyCode);
+			key.classList.remove('white-animate');
+			key.classList.remove('black-animate');
 			sound.stop();
 		});
 	};
