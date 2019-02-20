@@ -4,14 +4,18 @@ class SongsController < ApplicationController
   end
 
   def new
+    @song = Song.new 
   end
 
   def create
-    @song = Song.new
+     Song.create(song_params)
+     redirect_to songs_path
+
+   
   end
 
   def show
-    @song = Song.find(params[:id])
+    
   end
 
   def edit
@@ -25,4 +29,10 @@ class SongsController < ApplicationController
     @song.destroy
     
   end
+  private
+  def song_params
+    params.require(:song).permit(:title,:user_id,:song_file)
+  end
+  
+
 end
