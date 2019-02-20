@@ -27,18 +27,16 @@ class Sound {
   setup() {
     this.oscillator = this.context.createOscillator();
     this.gainNode = this.context.createGain();
-
     this.oscillator.connect(this.gainNode);
     this.gainNode.connect(this.context.destination);
-    this.oscillator.type = 'sine';
+		this.oscillator.type = 'triangle';
   };
 
   play(value) {
     this.setup();
-
     this.oscillator.frequency.value = value;
     this.gainNode.gain.setValueAtTime(0, this.context.currentTime);
-    this.gainNode.gain.linearRampToValueAtTime(1, this.context.currentTime + 0.01);
+    this.gainNode.gain.linearRampToValueAtTime(3, this.context.currentTime + 0.02);
 
     this.oscillator.start(this.context.currentTime);
     this.stop(this.context.currentTime);
@@ -59,6 +57,20 @@ function playPiano() {
 			var key = document.getElementById(keyCode)
 			var freq = key.dataset.frequency
 			sound.play(freq);
+		});
+
+		window.addEventListener("keypress", (e) => {
+			var sound = new Sound(context);
+			var keyCode = e.char || e.charCode || e.which
+			if (keyCode === 49) {
+				sound.oscillator.type="sine"
+			} else if  (keyCode === 50) {
+				sound.oscillator.type="triangle"
+			} else if (keyCode === 51) {
+				sound.oscillator.type="square"
+			} else if (keyCode === 52) {
+				sound.oscillator.type="sawtooth"
+			};
 		});
 
 		window.addEventListener("keyup", (event) => {
