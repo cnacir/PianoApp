@@ -6,6 +6,7 @@ class HomesController < ApplicationController
   end
 
 	def profile
+		@user = current_user
 	end
 
 	private
