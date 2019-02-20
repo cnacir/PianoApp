@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PianoApp</title>
+    <title>ScaleGrey Piano</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,17 +12,19 @@
 
   <body>
     <div class="container-fluid">
-      
+      <header class="">
       <% if user_signed_in? %>
       <nav class="nav">
-        <div class="justify-content-start">
-          <%= link_to 'Songs', songs_path, :class => 'btn btn-light btn-lg' %>
-          <%= link_to 'Piano', new_song_path, :class => 'btn btn-light btn-lg' %>
+        <div class="">
+          <%= link_to 'Songs', songs_path, :class => 'btn btn-light btn-lg mr-2' %>
+          <%= link_to 'Piano', new_song_path, :class => 'btn btn-light btn-lg mr-2' %>
         </div>
-        <div class="justify-content-end">
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Profile', profile_path(current_user.id), :class => 'btn btn-light btn-lg' %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-light btn-lg' %>
+        <div class="">
+          <h1 class="ml-2 mr-2">ScaleGrey Piano</h1>
+        </div>
+        <div class="">
+          <%= link_to 'Profile', profile_path(current_user.id), :class => 'btn btn-light btn-lg ml-2' %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-light btn-lg ml-2' %>
         </div>
       </nav>
       <% else %>
@@ -37,15 +39,22 @@
         </div>
       </nav>
       <% end %>
+      </header>
       
       
       <%= yield %>
+
+    </div>
+
+    <footer class="">
+      <p class="text-center">copywrong Final Form Dev Group</p>
+    </footer>
+
       <% if notice %>
         <p class="alert alert-dark"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert alert-dark"><%= alert %></p>
+        <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-    </div>
   </body>
 </html>
