@@ -15,15 +15,21 @@
 
 @import "bootstrap";
 
+@import "songs";
+@import "homes";
+
 body {
-	background: black;
-	
+	background: grey;
 }
 
 nav {
 	justify-content: center;
 
 }
+
+// .backdrop	{
+// 	background-color: white;
+// }
 
 // button {
 // 	.dark {
