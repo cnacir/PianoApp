@@ -10,26 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-@import "bootstrap";
 
+ */
+@import "bootstrap";
 @import "songs";
 @import "homes";
 
 body {
 	background: black;
+	width: 100%;
+	height: inherit;
 }
-
 nav {
 	justify-content: center;
-
 }
-
-// .backdrop	{
-// 	background-color: white;
-// }
-
-// button {
-// 	.dark {
-// 		opacity: 60%;
-// 	}
-// }
