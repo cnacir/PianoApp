@@ -80,7 +80,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: piano-app_production
-  username: piano-app
-  password: <%= ENV['PIANO-APP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # <<: *default
+  # database: piano-app_production
+  # username: piano-app
+  # password: <%= ENV['PIANO-APP_DATABASE_PASSWORD'] %>
