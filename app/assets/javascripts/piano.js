@@ -1,3 +1,5 @@
+// Hash of char codes : note : WebAudio frequency : and keyboard letter
+
 var notesByKeyCode = {
 		65: { noteName: 'F3', frequency: 174.61, keyName: 'a' },
 		87: { noteName: 'F3#', frequency: 185.00, keyName: 'w' },
@@ -13,11 +15,18 @@ var notesByKeyCode = {
 		74: { noteName: 'E4', frequency: 329.63, keyName: 'j' }
 };
 
+// This is to help identify the piano page
+
 var piano = document.getElementById("#piano")
+
+// Sets a default type for the oscillator
+
 var waveForm = 'sine'
 
 // Create the audio context
 var context = new (window.AudioContext || window.webkitAudioContext)();
+
+// Create Sound class to setup the boiler plate
 
 class Sound {
 
@@ -47,6 +56,7 @@ class Sound {
 
 };
 
+// Play this function whenever the keyboard is pressed down
 
 function playPiano() {
 		window.addEventListener("keydown", (e) => {
@@ -81,6 +91,8 @@ function playPiano() {
 			key.classList.remove('black-animate');
 		});
 	};
+
+// Finally check the page for the piano ID we called earlier and play the above logic if it exists.
 
 	document.addEventListener("DOMContentLoaded", (event) => {
 		if (!piano) {
